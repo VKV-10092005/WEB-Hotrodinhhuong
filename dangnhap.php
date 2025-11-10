@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require 'site.php'; // các file fotter header menu,...
-session_start(); // khởi động phiên làm việc bắt. đầu làm với session.
+require 'site.php'; // các file footer, header, menu,...
+session_start(); // khởi động phiên làm việc với session
 ?>
 
 <!DOCTYPE html>
@@ -49,49 +49,39 @@ session_start(); // khởi động phiên làm việc bắt. đầu làm với s
 
             <!-- Xử lý đăng nhập -->
             <?php
-            if (isset($_POST['dn'])) { //xử lý dữ liệu từ form HTML bằng phương thức POST lấy các giá trị input
-											// khi người dùng nhấn nút dn. phương thức này là mãng siêu toàn cục
+            if (isset($_POST['dn'])) { 
                 $tendn = trim($_POST['tk']);
                 $matkh = trim($_POST['mk']);
 
                 // Kết nối CSDL
-                $conn = mysqli_connect("localhost", "root", "123456", "dinhhuongbanthan");
+                $conn = mysqli_connect("localhost", "root", "", "hotrodinhhuong");
                 if (!$conn) {
                     die("<p style='color:red;'>❌ Không kết nối được đến CSDL</p>");
                 }
-                mysqli_set_charset($conn, "utf8mb4"); // thiết lập tiếng việt trong mySQL
+                mysqli_set_charset($conn, "utf8mb4"); // thiết lập tiếng Việt
 
                 // Lấy thông tin từ cả bảng dangnhap và thongtinTK
                 $stmt = $conn->prepare("SELECT dn.id, dn.matkhau, dn.da_lam_kiem_tra, tk.tenkhachhang, tk.diachiemail
                                         FROM dangnhap dn
                                         LEFT JOIN thongtintk tk ON dn.id = tk.id
                                         WHERE dn.tendangnhap = ?");
-										
-                $stmt->bind_param("s", $tendn); // dùng chữ s vì là ten đăng nhập là 1 biến chuỗi.
-												// liên kết tên đăng nhập biến truyền vào với tham số ?
-				
-                $stmt->execute(); // thực thi câu lệnh với tham số truyền vào
-                $stmt->store_result(); // lưu toàn bộ kết quả truyền vào -> vào table (lưu vào bộ nhớ tạm )
+                $stmt->bind_param("s", $tendn); 
+                $stmt->execute(); 
+                $stmt->store_result(); 
 
-                if ($stmt->num_rows === 0) { // đếm xem tên đăng nhập đã tồn tại hay chưa
+                if ($stmt->num_rows === 0) { 
                     echo "<p style='color:red; text-align:center;'>❌ Tài khoản không tồn tại!</p>";
                 } else {
                     $stmt->bind_result($user_id, $matkhauDB, $da_lam, $tenkhachhang, $diachiemail);
                     $stmt->fetch();
 
                     if (password_verify($matkh, $matkhauDB)) { 
-										// so sánh mật khẩu có trùng khớp hay không 
-										//xem mật khẩu được mã hóa có trùng khớp với chuỗi truyền vào hay không
                         // Lưu session
                         $_SESSION['user'] = $tendn;
                         $_SESSION['user_id'] = $user_id;
-                        $_SESSION['tendangnhap'] = $tendn; // có thể trùng với tên người dùng.
+                        $_SESSION['tendangnhap'] = $tendn; 
                         $_SESSION['hoten'] = $tenkhachhang;
                         $_SESSION['email'] = $diachiemail;
-						
-						// sau khi đăng nhập thành công thì lưu các thông tin về session. để kiểm tra quyền truy cập, hiển thị tên ở header
-						//sesion là phiên làm việc 
-						
 
                         // Điều hướng
                         if ($da_lam) {

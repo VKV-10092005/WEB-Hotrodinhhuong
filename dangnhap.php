@@ -1,4 +1,6 @@
 <?php
+// cập nhập file đăng nhập
+
 // Bật hiển thị lỗi (chỉ dùng khi debug)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -6,6 +8,7 @@ error_reporting(E_ALL);
 require 'site.php'; // các file fotter header menu,...
 session_start(); // khởi động phiên làm việc bắt. đầu làm với session.
 ?>
+
 
 <!DOCTYPE html>
 <html lang="vi">

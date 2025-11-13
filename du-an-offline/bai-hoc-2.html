@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bài học 2: Biến và kiểu dữ liệu trong C++</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.6;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    section {
+      margin-top: 20px;
+      background: white;
+      padding: 15px 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+    }
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bài học 2: Biến và kiểu dữ liệu trong C++</h1>
+
+  <section>
+    <h2>1. Biến trong C++ là gì?</h2>
+    <p>
+      Biến là nơi lưu trữ dữ liệu trong bộ nhớ của máy tính. Mỗi biến có một tên và kiểu dữ liệu xác định loại giá trị nó chứa.
+    </p>
+  </section>
+
+  <section>
+    <h2>2. Các kiểu dữ liệu cơ bản trong C++</h2>
+    <ul>
+      <li><strong>int</strong>: số nguyên (ví dụ: 1, -5, 100)</li>
+      <li><strong>float</strong>: số thực (ví dụ: 3.14, -0.5)</li>
+      <li><strong>double</strong>: số thực có độ chính xác cao hơn float</li>
+      <li><strong>char</strong>: ký tự đơn (ví dụ: 'a', 'Z')</li>
+      <li><strong>bool</strong>: giá trị đúng hoặc sai (true hoặc false)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. Cách khai báo biến</h2>
+    <pre><code>// Khai báo biến số nguyên
+int age;
+
+// Khai báo và gán giá trị cho biến
+float pi = 3.14;
+char letter = 'A';
+bool isReady = true;
+    </code></pre>
+  </section>
+
+  <section>
+    <h2>4. Ví dụ sử dụng biến</h2>
+    <pre><code>#include &lt;iostream&gt;
+
+int main() {
+  int age = 20;
+  float height = 1.75;
+  char grade = 'A';
+  bool passed = true;
+
+  std::cout &lt;&lt; "Tuổi: " &lt;&lt; age &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Chiều cao: " &lt;&lt; height &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Điểm: " &lt;&lt; grade &lt;&lt; std::endl;
+  std::cout &lt;&lt; "Đậu hay không: " &lt;&lt; passed &lt;&lt; std::endl;
+
+  return 0;
+}
+    </code></pre>
+  </section>
+
+</body>
+</html>

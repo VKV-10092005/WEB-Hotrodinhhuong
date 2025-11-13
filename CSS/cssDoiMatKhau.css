@@ -1,0 +1,112 @@
+/* Reset một số thuộc tính mặc định */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #f1f8e9);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container chính */
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+    animation: slideIn 0.5s ease;
+}
+
+/* Tiêu đề */
+h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 24px;
+    font-size: 24px;
+}
+
+/* Bảng form */
+table {
+    width: 100%;
+}
+
+table td {
+    padding: 10px 0;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Nút submit */
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Thông báo */
+.message {
+    text-align: center;
+    margin-top: 16px;
+    font-weight: 600;
+}
+
+.message.success {
+    color: #28a745;
+}
+
+.message.error {
+    color: #dc3545;
+}
+
+/* Hiệu ứng */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

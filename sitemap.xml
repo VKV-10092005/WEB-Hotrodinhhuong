@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Trang chủ -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Giới thiệu -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/duan.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Kiểm tra tính cách -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/kiemtra.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Trang kết quả -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/ketqua.php</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Lộ trình học tập -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/lotrinh.php</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Tài nguyên học tập -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/tainguyen.php</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Theo dõi tiến độ -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/theodoitiendo.php</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Quá trình học tập -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/quatrinh.php</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Liên hệ (nếu có) -->
+  <url>
+    <loc>https://hotrodinhhuongbanthan-vkv.kesug.com/lien-he.php</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

@@ -43,15 +43,15 @@ if ($quyen !== 'admin') {
 
     <ul>
         <li><a href="xem_taikhoan.php">📄 Danh sách tài khoản</a></li> 
-        <li><a href="">🚰️ Quản lý lộ trình</a></li><!--  quanly_lotrinh.php -->
-        <li><a href="">📊 Thống kê</a></li>  <!--  thongke.php -->
-        <li><a href="">🔐 Phân quyền người dùng</a></li><!--phanquyen.php-->
-        <li><a href="">👤 Hồ sơ quản trị</a></li> <li><!--hoso_admin.php-->
-            <a href="">📝 Quản lý bài viết / thông báo</a><!--quanly_baiviet.php--></li>
-        <li><a href="">📬 Phản hồi người dùng</a></li><!--phanhoi.php-->
-        <li><a href="">🕒 Nhật ký hoạt động</a></li><!--lichsu_hoatdong.php-->
-        <li><a href="">💾 Sao lưu & Khôi phục dữ liệu</a></li><!--backup_restore.php-->
-        <li><a href="">⚙️ Cài đặt hệ thống</a></li><!--caidat_hethong.php-->
+        <!-- <li><a href="">🚰️ Quản lý lộ trình</a></li>  quanly_lotrinh.php -->
+        <!-- <li><a href="">📊 Thống kê</a></li>   thongke.php -->
+        <!-- <li><a href="">🔐 Phân quyền người dùng</a></li>phanquyen.php -->
+        <!-- <li><a href="">👤 Hồ sơ quản trị</a></li> <li>hoso_admin.php -->
+            <!-- <a href="">📝 Quản lý bài viết / thông báo</a>quanly_baiviet.php</li> -->
+        <!-- <li><a href="">📬 Phản hồi người dùng</a></li>phanhoi.php -->
+        <!-- <li><a href="">🕒 Nhật ký hoạt động</a></li>lichsu_hoatdong.php -->
+        <!-- <li><a href="">💾 Sao lưu & Khôi phục dữ liệu</a></li>backup_restore.php -->
+        <!-- <li><a href="">⚙️ Cài đặt hệ thống</a></li>caidat_hethong.php -->
     </ul>
 </div>
 

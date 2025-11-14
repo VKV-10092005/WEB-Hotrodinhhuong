@@ -114,7 +114,7 @@ require 'db.php';
                     mysqli_set_charset($conn, "utf8mb4");
 
                     $tendn = mysqli_real_escape_string($conn, $tendn);
-                    $sql_check = "SELECT * FROM thongtinTK WHERE tendangnhap='$tendn'";
+                    $sql_check = "SELECT * FROM thongtintk WHERE tendangnhap='$tendn'";
                     $res = mysqli_query($conn, $sql_check);
 
                     if (mysqli_num_rows($res) > 0) {
@@ -130,7 +130,7 @@ require 'db.php';
                         $gioitinh = mysqli_real_escape_string($conn, $gioitinh);
 
                         // Thêm vào bảng thongtinTK
-                        $sql_insert_info = "INSERT INTO thongtinTK (tendangnhap, tenkhachhang, ngaysinh, gioitinh, diachiemail)
+                        $sql_insert_info = "INSERT INTO thongtintk (tendangnhap, tenkhachhang, ngaysinh, gioitinh, diachiemail)
                                             VALUES ('$tendn', '$hoten', '$ngaysinh', '$gioitinh', '$email')";
 
                         // Thêm vào bảng dangnhap

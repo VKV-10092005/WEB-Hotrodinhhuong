@@ -60,5 +60,4 @@ if ($quyen !== 'admin') {
 
 <?php
 load_footer();
-load_bottom();
 ?>

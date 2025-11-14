@@ -1,5 +1,4 @@
 <?php
-// Bật hiển thị lỗi (chỉ dùng khi debug)
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -35,23 +34,27 @@ session_start();
                 </div>
             </form>
 
-            <div class="signup-wrapper">
-                <p>
-                    <a href="doimatkhau.php">Quên mật khẩu</a> |
-                    <a href="dangky.php">Đăng ký ngay</a>
-                </p>
-                <div class="google-inline">
-                    <a href="google-login.php" class="google-icon-btn google" title="Google">
-                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
-                    </a>
-                    <a href="fb-login.php" class="google-icon-btn facebook" title="Facebook">
-                        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
-                    </a>
-                    <a href="sdt-login.php" class="google-icon-btn phone" title="Số điện thoại">
-                        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone">
-                    </a>
+            <div class="signup-link">
+                <div class="signup-wrapper">
+                    <p>
+                        <a href="doimatkhau.php">Quên mật khẩu</a> |
+                        <a href="dangky.php">Đăng ký ngay</a>
+                    </p>
+                    <div class="google-inline">
+                        <a href="google-login.php" class="google-icon-btn google" title="Google">
+                            <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
+                        </a>
+                        <a href="fb-login.php" class="google-icon-btn facebook" title="Facebook">
+                            <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook">
+                        </a>
+                        <a href="sdt-login.php" class="google-icon-btn phone" title="Số điện thoại">
+                            <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone">
+                        </a>
+                    </div>
                 </div>
             </div>
+
+
 
             <!-- Xử lý đăng nhập -->
             <?php
@@ -59,8 +62,8 @@ session_start();
                 $tendn = trim($_POST['tk']);
                 $matkh = trim($_POST['mk']);
 
-                // Kết nối CSDL của Vương
-                $conn = mysqli_connect("localhost", "root", "123456", "dinhhuongbanthan");
+                // Kết nối CSDL
+                $conn = mysqli_connect("localhost", "root", "", "hotrodinhhuong");
                 if (!$conn) {
                     die("<p style='color:red;'>❌ Không kết nối được đến CSDL</p>");
                 }
@@ -69,11 +72,12 @@ session_start();
                 // Lấy thông tin từ cả bảng dangnhap và thongtinTK
                 $stmt = $conn->prepare("SELECT dn.id, dn.matkhau, dn.da_lam_kiem_tra, tk.tenkhachhang, tk.diachiemail
                                         FROM dangnhap dn
-                                        LEFT JOIN thongtintk tk ON dn.id = tk.id
+                                        LEFT JOIN thongtinTK tk ON dn.id = tk.id
                                         WHERE dn.tendangnhap = ?");
                 $stmt->bind_param("s", $tendn);
                 $stmt->execute();
-                $stmt->store_result();
+                $stmt->store_result(); 
+                //$result = $stmt->get_result(); // Nếu muốn lấy dữ liệu nhiều dòng
 
                 if ($stmt->num_rows === 0) {
                     echo "<p style='color:red; text-align:center;'>❌ Tài khoản không tồn tại!</p>";

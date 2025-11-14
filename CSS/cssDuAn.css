@@ -1,0 +1,60 @@
+/* Reset và style cơ bản */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f9;
+  color: #333;
+}
+header {
+  background-color: #005f73;
+  color: #fff;
+  padding: 20px 15px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-weight: 700;
+}
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px 50px 15px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+h2 {
+  color: #0a9396;
+  border-bottom: 2px solid #94d2bd;
+  padding-bottom: 6px;
+  margin-top: 30px;
+}
+ul {
+  padding-left: 20px;
+}
+li {
+  margin-bottom: 8px;
+}
+section {
+  margin-bottom: 20px;
+}
+.highlight {
+  color: #ee6c4d;
+  font-weight: 600;
+}
+footer {
+  text-align: center;
+  color: #666;
+  padding: 20px 10px;
+  font-size: 0.9rem;
+  border-top: 1px solid #ccc;
+  margin-top: 40px;
+}
+@media(max-width: 600px) {
+  main {
+    margin: 10px;
+    padding: 10px;
+  }
+}

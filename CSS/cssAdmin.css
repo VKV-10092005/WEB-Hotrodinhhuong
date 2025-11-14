@@ -1,0 +1,57 @@
+/* CSS/admin.css */
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container-admin {
+    max-width: 960px;
+    margin: 40px auto;
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-admin h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container-admin p {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.container-admin ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.container-admin ul li {
+    background: #f0f8ff;
+    padding: 15px 20px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+}
+
+.container-admin ul li:hover {
+    background-color: #dbefff;
+    transform: translateY(-3px);
+}
+
+.container-admin a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1.05em;
+}

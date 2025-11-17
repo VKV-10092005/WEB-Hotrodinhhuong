@@ -91,4 +91,6 @@ $_SESSION['questions_for_test'] = $questions;
 
 <?php
 load_footer();
+<<<<<<< HEAD
 ?>
+

@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5dc; /* mã màu beige */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+
+#if1f2 {
+    margin: 20px auto;
+	margin-top:0px;
+    padding: 25px 20px;
+    background: linear-gradient(to right, #e3f2fd, #f0f8ff); /* Xanh nhạt dịu */
+    border: 2px solid #64b5f6; /* Xanh da trời */
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+h2 {
+    text-align: center;
+    color: #d10000;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+p, ul {
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+ul {
+    padding-left: 25px;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff6600;
+    text-decoration: underline;
+}
+
+
+.section-title {
+    font-size: 20px;
+    color: #0044cc;
+    margin-top: 25px;
+}
+
+.intro-box {
+    background-color: #f0f8ff;
+    padding: 15px;
+    border-left: 5px solid #007BFF;
+    font-style: italic;
+    margin-bottom: 20px;
+}

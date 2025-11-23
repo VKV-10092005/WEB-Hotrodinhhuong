@@ -157,7 +157,7 @@ require 'db.php';
             }
             ?>
 			<div class="register-options">
-				<div style="display: flex; justify-content: center; gap: 5px;">
+				<!-- <div style="display: flex; justify-content: center; gap: 5px;">
 					<a href="google-register.php" class="google">
 						<img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo">
 						Google
@@ -171,7 +171,7 @@ require 'db.php';
 					<a href="dangky_sdt.php" class="phone">
 						📱 Số điện thoại
 					</a>
-				</div>
+				</div> -->
 				<div class="back-link">
 					<p>Đã có tài khoản?<a href="dangnhap.php"> Đăng nhập</a></p>
 				</div>

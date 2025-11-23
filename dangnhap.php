@@ -40,7 +40,7 @@ session_start();
                         <a href="doimatkhau.php">Quên mật khẩu</a> |
                         <a href="dangky.php">Đăng ký ngay</a>
                     </p>
-                    <div class="google-inline">
+                    <!-- <div class="google-inline">
                         <a href="google-login.php" class="google-icon-btn google" title="Google">
                             <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google">
                         </a>
@@ -50,7 +50,7 @@ session_start();
                         <a href="sdt-login.php" class="google-icon-btn phone" title="Số điện thoại">
                             <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone">
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

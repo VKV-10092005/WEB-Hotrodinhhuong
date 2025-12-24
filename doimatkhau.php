@@ -17,7 +17,6 @@ session_start();
 
 <div class="container">
     <h2>🔐 Đổi mật khẩu</h2>
-
     <?php
     // BƯỚC 1: Kiểm tra thông tin cá nhân
     if (!isset($_SESSION['xac_thuc_doi_mk'])):
@@ -126,3 +125,4 @@ session_start();
 
 </body>
 </html>
+

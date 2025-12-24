@@ -1,8 +1,21 @@
 <?php
-session_start(); // Bắt đầu session nếu chưa có
-session_unset(); // Xóa tất cả biến session
-session_destroy(); // Hủy session
+session_start();
+session_unset();
+session_destroy();
 
-// Chuyển hướng về trang đăng nhập hoặc trang chủ
-header("Location: dangnhap.php"); // Bạn có thể đổi sang trangchu.php nếu muốn
+// Xóa cookie session (rất quan trọng)
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(
+        session_name(),
+        '',
+        time() - 42000,
+        $params["path"],
+        $params["domain"],
+        $params["secure"],
+        $params["httponly"]
+    );
+}
+
+header("Location: dangnhap.php");
 exit();

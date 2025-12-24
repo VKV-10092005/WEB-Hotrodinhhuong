@@ -48,14 +48,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ngaysinh     = $_POST['ngaysinh'] ?? '';
     $nganh        = $_POST['nganh_nghe'] ?? '';
     $nganh_moi    = trim($_POST['nganh_moi'] ?? '');
-    $quyen        = $_POST['quyen'] ?? 'nguoidung';
+    $quyen        = $_POST['quyen'] ?? 'user'; // fix: phải trùng ENUM trong DB
 
     /* ===== XỬ LÝ NGÀNH ===== */
     if ($nganh === 'Khac') {
         if ($nganh_moi === '') {
             $loi = "❌ Vui lòng nhập ngành mới.";
-        } elseif (!in_array($nganh_moi, $ds_nganh_hople)) {
-            $loi = "❌ Ngành này chưa có, vui lòng chọn ngành khác.";
         } else {
             $nganh = $nganh_moi;
         }
@@ -96,7 +94,7 @@ $ten = $ten ?? '';
 $email = $email ?? '';
 $ngaysinh = $ngaysinh ?? '';
 $nganh = $nganh ?? '';
-$quyen = $quyen ?? 'nguoidung';
+$quyen = $quyen ?? 'user'; // fix: mặc định 'user'
 
 function e($str) {
     return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
@@ -130,19 +128,19 @@ function e($str) {
             <option value="Marketing" <?= ($nganh==='Marketing'?'selected':'') ?>>Marketing</option>
             <option value="KinhDoanh" <?= ($nganh==='KinhDoanh'?'selected':'') ?>>Kinh doanh</option>
             <option value="ThietKe" <?= ($nganh==='ThietKe'?'selected':'') ?>>Thiết kế</option>
-            <option value="Khac">Khác</option>
+            <option value="Khac" <?= (!in_array($nganh,$ds_nganh_hople)?'selected':'') ?>>Khác</option>
         </select>
     </label><br><br>
 
-    <div id="nganh_moi_box" style="display:none;">
+    <div id="nganh_moi_box" style="display: <?= (!in_array($nganh,$ds_nganh_hople)?'block':'none') ?>;">
         <label>Nhập ngành khác:
-            <input type="text" name="nganh_moi">
+            <input type="text" name="nganh_moi" value="<?= (!in_array($nganh,$ds_nganh_hople)?e($nganh):'') ?>">
         </label><br><br>
     </div>
 
     <label>Quyền:
         <select name="quyen">
-            <option value="nguoidung" <?= ($quyen==='nguoidung'?'selected':'') ?>>Người dùng</option>
+            <option value="user" <?= ($quyen==='user'?'selected':'') ?>>Người dùng</option>
             <option value="admin" <?= ($quyen==='admin'?'selected':'') ?>>Admin</option>
         </select>
     </label><br><br>

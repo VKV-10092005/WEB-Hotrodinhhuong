@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['action'])) {
 $nganh = $_SESSION['nganh'] ?? '';
 $ngonngu = $_SESSION['ngonngu'] ?? '';
 $nganh_khac = '';
+$nganh_nodau = bo_dau(mb_strtolower((string)$nganh));
 
 // Nếu đã đăng nhập nhưng chưa có ngành thì lấy từ DB
 if (isset($_SESSION['user']) && $nganh === '') {
@@ -41,6 +42,7 @@ if (isset($_SESSION['user']) && $nganh === '') {
             $_SESSION['ngonngu'] = $row['ngon_ngu'];
             $nganh = $row['nganh_nghe'];
             $ngonngu = $row['ngon_ngu'];
+            $nganh_nodau = bo_dau(mb_strtolower((string)$nganh));
         }
         mysqli_close($conn);
     }
@@ -81,13 +83,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !isset($_POST['action'])) {
     }
 
     // 🧩 Xóa ngôn ngữ nếu ngành không phải CNTT
-    $nganh_lower = mb_strtolower(bo_dau($nganh));
-if ($nganh_lower !== 'cntt' && $nganh_lower !== 'cong nghe thong tin') {
+    $nganh_lower = mb_strtolower(bo_dau((string)$nganh));
+    if ($nganh_lower !== 'cntt' && $nganh_lower !== 'cong nghe thong tin') {
         $ngonngu = '';
     }
 
     $_SESSION['nganh'] = $nganh;
     $_SESSION['ngonngu'] = $ngonngu;
+
+    $nganh_nodau = bo_dau(mb_strtolower((string)$nganh));
 
     // 🧩 Lưu vào database nếu có tài khoản
     if (isset($_SESSION['user'])) {
@@ -113,12 +117,11 @@ if ($nganh_lower !== 'cntt' && $nganh_lower !== 'cong nghe thong tin') {
 <div class="container" style="padding: 20px;">
     <h3>🔁 Bạn đã có lộ trình đang lưu:</h3>
     <p>
-        Ngành: <strong><?= htmlspecialchars($nganh) ?></strong>
+        Ngành: <strong><?= htmlspecialchars((string)$nganh) ?></strong>
         <?php 
         // 🧩 Chỉ hiển thị ngôn ngữ nếu ngành là CNTT
-        $nganh_no_dau = bo_dau(mb_strtolower($nganh));
-        if (($nganh_no_dau === 'cntt' || $nganh_no_dau === 'cong nghe thong tin') && $ngonngu): ?>
-            , Ngôn ngữ: <strong><?= strtoupper(htmlspecialchars($ngonngu)) ?></strong>
+        if (($nganh_nodau === 'cntt' || $nganh_nodau === 'cong nghe thong tin') && $ngonngu): ?>
+            , Ngôn ngữ: <strong><?= strtoupper(htmlspecialchars((string)$ngonngu)) ?></strong>
         <?php endif; ?>
     </p>
     <form method="POST" style="display:inline;">
@@ -157,7 +160,7 @@ if ($nganh_lower !== 'cntt' && $nganh_lower !== 'cong nghe thong tin') {
                 <option value="">--Chọn--</option>
                 <option value="cpp">C++</option>
                 <option value="c">C</option>
-<option value="java">Java</option>
+                <option value="java">Java</option>
                 <option value="python">Python</option>
             </select>
         </div>
@@ -200,14 +203,13 @@ window.onload = function() {
 
 <?php
 if ($nganh !== '') {
-    $nganh_nodau = bo_dau(mb_strtolower($nganh));
     echo '<div class="container" style="padding: 20px;">';
 
     $co_file_lotrinh = false;
 
     if ($nganh_nodau === 'cntt' || $nganh_nodau === 'cong nghe thong tin') {
         if ($ngonngu) {
-            echo "<h3>Lộ trình CNTT với ngôn ngữ: " . strtoupper($ngonngu) . "</h3>";
+            echo "<h3>Lộ trình CNTT với ngôn ngữ: " . strtoupper(htmlspecialchars((string)$ngonngu)) . "</h3>";
             $file = "ngonngulaptrinh/{$ngonngu}/lotrinh.php";
             $co_file_lotrinh = file_exists($file);
             if ($co_file_lotrinh) include $file;
@@ -216,32 +218,34 @@ if ($nganh !== '') {
             echo "<p style='color:red;'>⚠️ Vui lòng chọn ngôn ngữ</p>";
         }
     } else {
-        echo "<h3>Lộ trình ngành: " . htmlspecialchars($nganh) . "</h3>";
+        echo "<h3>Lộ trình ngành: " . htmlspecialchars((string)$nganh) . "</h3>";
         $file = "nganh/{$nganh_nodau}/lotrinh.php";
         $co_file_lotrinh = file_exists($file);
         if ($co_file_lotrinh) include $file;
         else echo "<p style='color:orange;'>⚠️ Chưa có lộ trình chi tiết</p>";
     }
 
-    // 🧩 Nút bắt đầu học
+    // 🧩 Nút bắt đầu học (nếu cần)
     if ($co_file_lotrinh):
 ?>
-    <!-- <div style="margin: 30px 0; text-align: center;">
+    <!--
+    <div style="margin: 30px 0; text-align: center;">
         <form method="POST" action="quatrinh.php">
-            <input type="hidden" name="nganh" value="<?= htmlspecialchars($nganh) ?>">
+            <input type="hidden" name="nganh" value="<?= htmlspecialchars((string)$nganh) ?>">
             <?php if ($nganh_nodau === 'cntt' || $nganh_nodau === 'cong nghe thong tin'): ?>
-                <input type="hidden" name="ngonngu" value="<?= htmlspecialchars($ngonngu) ?>">
+                <input type="hidden" name="ngonngu" value="<?= htmlspecialchars((string)$ngonngu) ?>">
             <?php endif; ?>
             <input type="hidden" name="tuan" value="1">
             <input type="hidden" name="ngay" value="1">
             <button type="submit"
-style="padding: 12px 30px; font-size: 1.1em;
+                    style="padding: 12px 30px; font-size: 1.1em;
                            background-color: #28a745; color: white;
                            border: none; border-radius: 8px; cursor: pointer;">
                 🚀 Bắt đầu học
             </button>
         </form>
-    </div> -->
+    </div>
+    -->
 <?php
     endif;
     echo '</div>';
